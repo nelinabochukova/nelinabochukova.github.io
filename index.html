@@ -90,11 +90,27 @@
       color: #0047FF;
       margin: 0.5rem 0;
     }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 10px;
+    .cert-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .cert-gallery img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .btn-download {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #0047FF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
     }
     .contact a {
       color: #0047FF;
@@ -111,7 +127,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#impact">Impact</a></li>
       <li><a href="#certs">Certifications</a></li>
-      <li><a href="#certificate-pdf">Certificate</a></li>
+      <li><a href="#certificate-gallery">Certificates</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -180,9 +196,12 @@
       </ul>
     </section>
 
-    <section id="certificate-pdf">
-      <h2>Sample Certificate</h2>
-      <iframe src="Illinois%20(1).pdf"></iframe>
+    <section id="certificate-gallery">
+      <h2>Certificate Gallery</h2>
+      <div class="cert-gallery">
+        <img src="Illinois (1)-1.png" alt="Certificate - Marketing in a Digital World" />
+      </div>
+      <a href="Illinois (1)-1.png" class="btn-download" download>Download Certificate</a>
     </section>
 
     <section id="contact" class="contact">
@@ -193,3 +212,4 @@
   </div>
 </body>
 </html>
+
