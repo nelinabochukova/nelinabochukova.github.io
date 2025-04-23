@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nelina Bochukova - Future Content Manager @ Tide</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
@@ -13,10 +16,32 @@
       color: #333;
       line-height: 1.6;
     }
+    nav {
+      background: #004080;
+      color: white;
+      padding: 1rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
     .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 6rem 2rem 2rem 2rem;
     }
     header {
       text-align: center;
@@ -65,18 +90,30 @@
   </style>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#role">Current Role</a></li>
+      <li><a href="#transition">Why Transition</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
     <header>
       <h1>Nelina Bochukova</h1>
       <p>Future Content Manager @ Tide? 😎</p>
     </header>
 
-    <section>
+    <section id="about">
       <h2>About Me</h2>
       <p>I thrive in fast-moving, mission-driven environments like Tide. I love turning complex ideas into accessible, engaging stories — whether through content, customer journeys, or collaboration. My goal is to help brands speak clearly and build lasting relationships through content that truly connects.</p>
     </section>
 
-    <section>
+    <section id="role">
       <h2>Current Role at Tide</h2>
       <ul>
         <li>Business Development Executive since April 2024</li>
@@ -86,12 +123,12 @@
       </ul>
     </section>
 
-    <section>
+    <section id="transition">
       <h2>Why the Transition?</h2>
       <p>Content is more than copy — it's strategy. I'm passionate about using language to guide, support, and inspire action. With a foundation in marketing and communication, and a deep knowledge of Tide’s values and tone, I’m ready to transition into a role where I can help lead content efforts that build trust and growth.</p>
     </section>
 
-    <section>
+    <section id="skills">
       <h2>Skills & Strengths</h2>
       <ul>
         <li>Content Strategy & Copywriting</li>
@@ -102,7 +139,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="impact">
       <h2>Impact Metrics</h2>
       <div class="impact">
         <div class="impact-card">
@@ -120,7 +157,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="certs">
       <h2>Certifications & Learning</h2>
       <ul>
         <li>Intro to International Marketing</li>
@@ -129,7 +166,7 @@
       </ul>
     </section>
 
-    <section class="contact">
+    <section id="contact" class="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:nelina.bochukova@gmail.com">nelina.bochukova@gmail.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/nelina-bochukova" target="_blank">nelina-bochukova</a></p>
