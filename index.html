@@ -228,22 +228,74 @@
 
  <section id="certs">
   <h2>Certifications & Learning</h2>
-  <div style="overflow-x: auto; white-space: nowrap; padding-bottom: 1rem;">
-    <div style="display: inline-flex; gap: 1rem; padding: 0.5rem 0;">
-      <img src="Illinois (1)-1.png" alt="Certificate - Digital Marketing in a Digital World" style="height: 200px; border-radius: 10px;">
-      <img src="creative.png" alt="Creative Marketing" style="height: 200px; border-radius: 10px;">
-      <img src="customer-journey.png" alt="Customer Journey Mapping" style="height: 200px; border-radius: 10px;">
-      <img src="email.png" alt="Email Marketing" style="height: 200px; border-radius: 10px;">
-      <img src="google-digital-garage.png" alt="Google Digital Garage" style="height: 200px; border-radius: 10px;">
-      <img src="facebook-ads.png" alt="Facebook Ads" style="height: 200px; border-radius: 10px;">
-      <img src="google-ads.png" alt="Google Ads" style="height: 200px; border-radius: 10px;">
-      <img src="international-marketing.png" alt="International Marketing" style="height: 200px; border-radius: 10px;">
-      <img src="marketing-strategy.png" alt="Marketing Strategy" style="height: 200px; border-radius: 10px;">
-      <img src="letters-recommendation.png" alt="Letters of Recommendation" style="height: 200px; border-radius: 10px;">
-      <img src="web.png" alt="Web Strategy" style="height: 200px; border-radius: 10px;">
-    </div>
+  <style>
+    .scroll-gallery {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      animation: scroll 60s linear infinite;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+    .scroll-gallery img {
+      height: 200px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .scroll-gallery img:hover {
+      transform: scale(1.05);
+    }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+    }
+  </style>
+
+  <div class="scroll-gallery" id="cert-scroll">
+    <img src="Illinois (1)-1.png" alt="Illinois" onclick="openLightbox(this)">
+    <img src="creative.png" alt="Creative" onclick="openLightbox(this)">
+    <img src="customer-journey.png" alt="Customer Journey" onclick="openLightbox(this)">
+    <img src="email.png" alt="Email" onclick="openLightbox(this)">
+    <img src="facebook-ads.png" alt="Facebook Ads" onclick="openLightbox(this)">
+    <img src="google-ads.png" alt="Google Ads" onclick="openLightbox(this)">
+    <img src="google-digital-garage.png" alt="Google Digital Garage" onclick="openLightbox(this)">
+    <img src="international-marketing.png" alt="International Marketing" onclick="openLightbox(this)">
+    <img src="marketing-strategy.png" alt="Marketing Strategy" onclick="openLightbox(this)">
+    <img src="letters-recommendation.png" alt="Letters of Recommendation" onclick="openLightbox(this)">
+    <img src="web.png" alt="Web" onclick="openLightbox(this)">
   </div>
+
+  <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="" alt="Full View">
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
+    }
+  </script>
 </section>
+
 
 
 
