@@ -17,18 +17,25 @@
     nav {
       background: #0A46E4;
       color: white;
-      padding: 1rem;
+      padding: 1rem 0;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    nav .nav-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+    }
     nav ul {
       display: flex;
       list-style: none;
-      justify-content: center;
-      gap: 2rem;
+      gap: 1rem;
       margin: 0;
       padding: 0;
     }
@@ -114,20 +121,29 @@
       color: #0A46E4;
       text-decoration: none;
     }
+    .logo img {
+      height: 32px;
+    }
   </style>
 </head>
 <body>
+
 <nav>
-  <ul>
-    <li><a href="#about">About Me</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#role">Current Role</a></li>
-    <li><a href="#transition">Why Transition</a></li>
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="#certs">Certifications</a></li>
-    <li><a href="#experience">Previous Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-container">
+    <a class="logo" href="https://www.tide.co" target="_blank">
+      <img src="https://www.tide.co/wp-content/themes/tide/assets/images/logos/logo-white.svg" alt="Tide Logo">
+    </a>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#role">Current Role</a></li>
+      <li><a href="#transition">Why Transition</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#experience">Previous Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="container">
@@ -206,6 +222,6 @@
     <p>LinkedIn: <a href="https://www.linkedin.com/in/nelina-bochukova" target="_blank">nelina-bochukova</a></p>
   </section>
 </div>
+
 </body>
 </html>
-
