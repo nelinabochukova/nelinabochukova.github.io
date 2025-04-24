@@ -229,27 +229,31 @@
  <section id="certs">
   <h2>Certifications & Learning</h2>
   <style>
-    .scroll-gallery {
+    .carousel-container {
+      overflow: hidden;
+      width: 100%;
+    }
+    .carousel-track {
       display: flex;
-      overflow-x: auto;
-      white-space: nowrap;
-      animation: scroll 60s linear infinite;
-      padding: 1rem 0;
+      animation: scrollCarousel 30s linear infinite;
       gap: 1rem;
     }
-    .scroll-gallery img {
+    .carousel-track img {
       height: 200px;
       border-radius: 10px;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
     }
-    .scroll-gallery img:hover {
+    .carousel-track img:hover {
       transform: scale(1.05);
     }
-    @keyframes scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+
+    @keyframes scrollCarousel {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
+
     /* Lightbox */
     .lightbox {
       display: none;
@@ -260,38 +264,95 @@
       background: rgba(0, 0, 0, 0.8);
       justify-content: center;
       align-items: center;
+      flex-direction: column;
     }
     .lightbox img {
       max-width: 90vw;
-      max-height: 90vh;
+      max-height: 80vh;
       border-radius: 10px;
+    }
+    .lightbox-nav {
+      margin-top: 1rem;
+      display: flex;
+      gap: 2rem;
+    }
+    .lightbox-nav button {
+      padding: 0.5rem 1rem;
+      background: #0A46E4;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
     }
   </style>
 
-  <div class="scroll-gallery" id="cert-scroll">
-    <img src="Illinois (1)-1.png" alt="Illinois" onclick="openLightbox(this)">
-    <img src="creative.png" alt="Creative" onclick="openLightbox(this)">
-    <img src="customer-journey.png" alt="Customer Journey" onclick="openLightbox(this)">
-    <img src="email.png" alt="Email" onclick="openLightbox(this)">
-    <img src="facebook-ads.png" alt="Facebook Ads" onclick="openLightbox(this)">
-    <img src="google-ads.png" alt="Google Ads" onclick="openLightbox(this)">
-    <img src="google-digital-garage.png" alt="Google Digital Garage" onclick="openLightbox(this)">
-    <img src="international-marketing.png" alt="International Marketing" onclick="openLightbox(this)">
-    <img src="marketing-strategy.png" alt="Marketing Strategy" onclick="openLightbox(this)">
-    <img src="letters-recommendation.png" alt="Letters of Recommendation" onclick="openLightbox(this)">
-    <img src="web.png" alt="Web" onclick="openLightbox(this)">
+  <div class="carousel-container">
+    <div class="carousel-track" id="certCarousel">
+      <!-- Duplicate images for smooth loop -->
+      <img src="Illinois (1)-1.png" alt="Illinois" onclick="openLightbox(0)">
+      <img src="creative.png" alt="Creative" onclick="openLightbox(1)">
+      <img src="customer-journey.png" alt="Customer Journey" onclick="openLightbox(2)">
+      <img src="email.png" alt="Email" onclick="openLightbox(3)">
+      <img src="facebook-ads.png" alt="Facebook Ads" onclick="openLightbox(4)">
+      <img src="google-ads.png" alt="Google Ads" onclick="openLightbox(5)">
+      <img src="google-digital-garage.png" alt="Google Digital Garage" onclick="openLightbox(6)">
+      <img src="international-marketing.png" alt="International Marketing" onclick="openLightbox(7)">
+      <img src="marketing-strategy.png" alt="Marketing Strategy" onclick="openLightbox(8)">
+      <img src="letters-recommendation.png" alt="Letters of Recommendation" onclick="openLightbox(9)">
+      <img src="web.png" alt="Web Strategy" onclick="openLightbox(10)">
+      <!-- duplicate to loop smoothly -->
+      <img src="Illinois (1)-1.png" alt="Illinois" onclick="openLightbox(0)">
+      <img src="creative.png" alt="Creative" onclick="openLightbox(1)">
+      <img src="customer-journey.png" alt="Customer Journey" onclick="openLightbox(2)">
+    </div>
   </div>
 
-  <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
     <img id="lightbox-img" src="" alt="Full View">
+    <div class="lightbox-nav">
+      <button onclick="prevCert()">← Previous</button>
+      <button onclick="nextCert()">Next →</button>
+      <button onclick="closeLightbox()">Close ✕</button>
+    </div>
   </div>
 
   <script>
-    function openLightbox(img) {
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightbox-img");
-      lightboxImg.src = img.src;
-      lightbox.style.display = "flex";
+    const certs = [
+      "Illinois (1)-1.png",
+      "creative.png",
+      "customer-journey.png",
+      "email.png",
+      "facebook-ads.png",
+      "google-ads.png",
+      "google-digital-garage.png",
+      "international-marketing.png",
+      "marketing-strategy.png",
+      "letters-recommendation.png",
+      "web.png"
+    ];
+
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById("lightbox-img").src = certs[currentIndex];
+      document.getElementById("lightbox").style.display = "flex";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+
+    function nextCert() {
+      currentIndex = (currentIndex + 1) % certs.length;
+      document.getElementById("lightbox-img").src = certs[currentIndex];
+    }
+
+    function prevCert() {
+      currentIndex = (currentIndex - 1 + certs.length) % certs.length;
+      document.getElementById("lightbox-img").src = certs[currentIndex];
     }
   </script>
 </section>
