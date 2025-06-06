@@ -404,41 +404,41 @@
   <h2>What Our Members Say About Me</h2>
   <div class="carousel">
     <div class="carousel-track" id="reviewTrack">
-      <img src="IMG_2201.jpg" alt="Review" onclick="openModal(0)">
-      <img src="IMG_2207.jpg" alt="Review" onclick="openModal(1)">
-      <img src="IMG_2203.jpg" alt="Review" onclick="openModal(2)">
-      <img src="IMG_2208.jpg" alt="Review" onclick="openModal(3)">
-      <img src="IMG_2206.jpg" alt="Review" onclick="openModal(4)">
-      <img src="IMG_2191.jpg" alt="Review" onclick="openModal(5)">
-      <img src="IMG_2192.jpg" alt="Review" onclick="openModal(6)">
-      <img src="IMG_2193.jpg" alt="Review" onclick="openModal(7)">
-      <img src="IMG_2194.jpg" alt="Review" onclick="openModal(8)">
-      <img src="IMG_2195.jpg" alt="Review" onclick="openModal(9)">
-      <img src="IMG_2196.jpg" alt="Review" onclick="openModal(10)">
-      <img src="IMG_2197.jpg" alt="Review" onclick="openModal(11)">
-      <img src="IMG_2198.jpg" alt="Review" onclick="openModal(12)">
-      <img src="IMG_2199.jpg" alt="Review" onclick="openModal(13)">
-      <img src="IMG_2200.jpg" alt="Review" onclick="openModal(14)">
-      <img src="IMG_2202.jpg" alt="Review" onclick="openModal(15)">
-      <img src="IMG_2210.jpg" alt="Review" onclick="openModal(16)">
-      <img src="IMG_2205.jpg" alt="Review" onclick="openModal(17)">
-      <img src="IMG_2204.jpg" alt="Review" onclick="openModal(18)">
-      <img src="IMG_2189.jpg" alt="Review" onclick="openModal(19)">
-      <img src="IMG_2190.jpg" alt="Review" onclick="openModal(20)">
-      <img src="IMG_2187.jpg" alt="Review" onclick="openModal(21)">
-      <img src="IMG_2188.jpg" alt="Review" onclick="openModal(22)">
-      <img src="IMG_2186.jpg" alt="Review" onclick="openModal(23)">
+      <img src="IMG_2201.jpg" onclick="openReviewModal(0)">
+      <img src="IMG_2207.jpg" onclick="openReviewModal(1)">
+      <img src="IMG_2203.jpg" onclick="openReviewModal(2)">
+      <img src="IMG_2208.jpg" onclick="openReviewModal(3)">
+      <img src="IMG_2206.jpg" onclick="openReviewModal(4)">
+      <img src="IMG_2191.jpg" onclick="openReviewModal(5)">
+      <img src="IMG_2192.jpg" onclick="openReviewModal(6)">
+      <img src="IMG_2193.jpg" onclick="openReviewModal(7)">
+      <img src="IMG_2194.jpg" onclick="openReviewModal(8)">
+      <img src="IMG_2195.jpg" onclick="openReviewModal(9)">
+      <img src="IMG_2196.jpg" onclick="openReviewModal(10)">
+      <img src="IMG_2197.jpg" onclick="openReviewModal(11)">
+      <img src="IMG_2198.jpg" onclick="openReviewModal(12)">
+      <img src="IMG_2199.jpg" onclick="openReviewModal(13)">
+      <img src="IMG_2200.jpg" onclick="openReviewModal(14)">
+      <img src="IMG_2202.jpg" onclick="openReviewModal(15)">
+      <img src="IMG_2210.jpg" onclick="openReviewModal(16)">
+      <img src="IMG_2205.jpg" onclick="openReviewModal(17)">
+      <img src="IMG_2204.jpg" onclick="openReviewModal(18)">
+      <img src="IMG_2189.jpg" onclick="openReviewModal(19)">
+      <img src="IMG_2190.jpg" onclick="openReviewModal(20)">
+      <img src="IMG_2187.jpg" onclick="openReviewModal(21)">
+      <img src="IMG_2188.jpg" onclick="openReviewModal(22)">
+      <img src="IMG_2186.jpg" onclick="openReviewModal(23)">
     </div>
   </div>
   <p style="text-align: center; margin-top: 1rem; font-style: italic;">...and many more</p>
   <p style="font-size: 0.85rem; color: #666; text-align: center;">*Real member feedback collected from Trustpilot.</p>
 
   <!-- Modal -->
-  <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; flex-direction: column;">
-    <img id="modal-img" style="max-width:90%; max-height:80%; border-radius: 10px;">
+  <div id="reviewModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center; flex-direction: column;">
+    <img id="reviewModalImg" style="max-width:90%; max-height:80%; border-radius: 10px;">
     <div style="margin-top: 1rem;">
-      <button onclick="prevImage()" style="margin-right: 1rem;">⬅️ Prev</button>
-      <button onclick="nextImage()">Next ➡️</button>
+      <button onclick="prevReview()" style="margin-right: 1rem;">⬅️ Prev</button>
+      <button onclick="nextReview()">Next ➡️</button>
     </div>
   </div>
 </section>
@@ -451,7 +451,7 @@
   .carousel-track {
     display: flex;
     gap: 1rem;
-    animation: scroll 25s linear infinite;
+    animation: scroll 22s linear infinite;
   }
   .carousel-track img {
     height: 200px;
@@ -466,7 +466,7 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
-  #modal button {
+  #reviewModal button {
     background: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -474,45 +474,45 @@
     font-weight: bold;
     cursor: pointer;
   }
-  #modal button:hover {
+  #reviewModal button:hover {
     background: #ddd;
   }
 </style>
 
 <script>
-  const imageList = [
-    "IMG_2201.jpg", "IMG_2207.jpg", "IMG_2203.jpg", "IMG_2208.jpg", "IMG_2206.jpg",
-    "IMG_2191.jpg", "IMG_2192.jpg", "IMG_2193.jpg", "IMG_2194.jpg", "IMG_2195.jpg",
-    "IMG_2196.jpg", "IMG_2197.jpg", "IMG_2198.jpg", "IMG_2199.jpg", "IMG_2200.jpg",
-    "IMG_2202.jpg", "IMG_2210.jpg", "IMG_2205.jpg", "IMG_2204.jpg", "IMG_2189.jpg",
-    "IMG_2190.jpg", "IMG_2187.jpg", "IMG_2188.jpg", "IMG_2186.jpg"
+  const reviews = [
+    "IMG_2201.jpg","IMG_2207.jpg","IMG_2203.jpg","IMG_2208.jpg","IMG_2206.jpg",
+    "IMG_2191.jpg","IMG_2192.jpg","IMG_2193.jpg","IMG_2194.jpg","IMG_2195.jpg",
+    "IMG_2196.jpg","IMG_2197.jpg","IMG_2198.jpg","IMG_2199.jpg","IMG_2200.jpg",
+    "IMG_2202.jpg","IMG_2210.jpg","IMG_2205.jpg","IMG_2204.jpg","IMG_2189.jpg",
+    "IMG_2190.jpg","IMG_2187.jpg","IMG_2188.jpg","IMG_2186.jpg"
   ];
-  let currentIndex = 0;
+  let reviewIndex = 0;
 
-  function openModal(index) {
-    currentIndex = index;
-    document.getElementById("modal-img").src = imageList[index];
-    document.getElementById("modal").style.display = "flex";
+  function openReviewModal(index) {
+    reviewIndex = index;
+    document.getElementById("reviewModalImg").src = reviews[index];
+    document.getElementById("reviewModal").style.display = "flex";
   }
 
-  function nextImage() {
-    currentIndex = (currentIndex + 1) % imageList.length;
-    document.getElementById("modal-img").src = imageList[currentIndex];
+  function nextReview() {
+    reviewIndex = (reviewIndex + 1) % reviews.length;
+    document.getElementById("reviewModalImg").src = reviews[reviewIndex];
   }
 
-  function prevImage() {
-    currentIndex = (currentIndex - 1 + imageList.length) % imageList.length;
-    document.getElementById("modal-img").src = imageList[currentIndex];
+  function prevReview() {
+    reviewIndex = (reviewIndex - 1 + reviews.length) % reviews.length;
+    document.getElementById("reviewModalImg").src = reviews[reviewIndex];
   }
 
-  document.getElementById("modal").addEventListener("click", function (e) {
-    if (e.target.id === "modal" || e.target.tagName === "BUTTON") return;
+  document.getElementById("reviewModal").addEventListener("click", function (e) {
+    if (e.target.id === "reviewModal" || e.target.tagName === "BUTTON") return;
     this.style.display = "none";
   });
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-      document.getElementById("modal").style.display = "none";
+      document.getElementById("reviewModal").style.display = "none";
     }
   });
 </script>
